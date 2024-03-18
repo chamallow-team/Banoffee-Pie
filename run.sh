@@ -1,6 +1,6 @@
 #!/bin/bash
 
 find . -name "*.class" -type f -delete
-javac BanoffeePie/Driver.java
+javac MorpionMinMax/Morpion.java
 
-java BanoffeePie/Driver
+java MorpionMinMax/Morpion

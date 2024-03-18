@@ -93,7 +93,7 @@ public class Driver {
     }
 
     public static ColorCsv createData(){
-        ColorCsv csv = new ColorCsv("./colors.csv");
+        ColorCsv csv = new ColorCsv("saves/colors.csv");
 
         try {
             csv.init();
