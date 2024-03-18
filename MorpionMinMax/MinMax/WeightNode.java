@@ -24,6 +24,10 @@ public class WeightNode {
         this.isWin = isWin;
     }
 
+    public HashMap<Integer, WeightNode> getAllChildren(){
+        return this.children;
+    }
+
     public double getWeight(){
         return this.weight;
     }

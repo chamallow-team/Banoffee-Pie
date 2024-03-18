@@ -1,7 +1,6 @@
 package MorpionMinMax;
 
 import java.util.Arrays;
-import java.util.Objects;
 
 public class Board {
     private int[][] board = new int[][]{
@@ -36,7 +35,7 @@ public class Board {
     }
 
     public boolean isMoveAllowed(char x, int y){
-        if (y < 0 || y > 3)
+        if (y < 0 || y >= 3)
             return false;
 
         return switch (x) {
@@ -48,7 +47,7 @@ public class Board {
     }
 
     public boolean isMoveAllowed(int x, int y){
-        if ((y < 0 || y > 3) || (x < 0 || x > 3))
+        if ((y < 0 || y >= 3) || (x < 0 || x >= 3))
             return false;
 
         return board[x][y] == 0;

@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Bot implements Player {
     private final int id;
-    private MinMax minMax;
+    private final MinMax minMax;
 
     public Bot(int id) {
         this.id = id;
@@ -22,6 +22,10 @@ public class Bot implements Player {
     @Override
     public void playMove(Board board, Scanner _scanner) {
         Coordinate prediction = this.minMax.predict(board, this.getPlayerId());
+
+        System.out.println("Bot played: " + prediction);
+
+        board.play(this.getPlayerId(), prediction.x, prediction.y);
     }
 
 }
