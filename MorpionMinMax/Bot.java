@@ -12,6 +12,7 @@ public class Bot implements Player {
         this.id = id;
 
         this.minMax = new MinMax();
+        this.minMax.train();
     }
 
     @Override
@@ -27,5 +28,4 @@ public class Bot implements Player {
 
         board.play(this.getPlayerId(), prediction.x, prediction.y);
     }
-
 }

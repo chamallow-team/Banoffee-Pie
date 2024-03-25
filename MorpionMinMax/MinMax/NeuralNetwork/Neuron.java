@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Neuron {
 
-    private final double bias;
+    private double bias;
     private double output; // Use a more descriptive name
     private final List<NeuronLink> links;
 
@@ -18,6 +18,10 @@ public class Neuron {
 
     public double getBias() {
         return bias;
+    }
+
+    public void setBias(double bias) {
+        this.bias = bias;
     }
 
     public void addNeuronLink(NeuronLink link) {
@@ -61,5 +65,9 @@ public class Neuron {
 
     public double getOutput() {
         return output;
+    }
+
+    public void printDebug(){
+        System.out.println("Neuron {" + "bias=" + bias + ", output=" + output + '}');
     }
 }

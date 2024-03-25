@@ -70,9 +70,15 @@ public class Board {
 
     public void draw() {
         int[][] board = this.getBoard();
-        System.out.println("  A B C");
+        System.out.println("  0 1 2");
         for (int i = 0; i < 3; i++) {
-            System.out.print(i + " ");
+            switch (i) {
+                case 0 -> System.out.print("A ");
+                case 1 -> System.out.print("B ");
+                case 2 -> System.out.print("C ");
+                default -> System.out.print("  ");
+            }
+
             for (int j = 0; j < 3; j++) {
                 char c = switch (board[i][j]) {
                     case 1 -> 'x';

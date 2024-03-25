@@ -15,4 +15,14 @@ public class Util {
         }
         return sumSquare / (correctAnswers.size());
     }
+
+    public double calculateLoss(double computedOutput, double correctOutput) {
+        // Utilisation de la fonction Mean Squared Error (MSE)
+        return Math.pow(computedOutput - correctOutput, 2) / 2.0;
+    }
+
+    public static double sigmoidDerivative(double x) {
+        double exp = Math.exp(-x);
+        return exp / ((1 + exp) * (1 + exp));
+    }
 }

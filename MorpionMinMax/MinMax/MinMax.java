@@ -4,6 +4,7 @@ import MorpionMinMax.Board;
 import MorpionMinMax.Coordinate;
 import MorpionMinMax.MinMax.NeuralNetwork.NeuralNetwork;
 import MorpionMinMax.MinMax.NeuralNetwork.Neuron;
+import MorpionMinMax.MinMax.NeuralNetwork.Trainer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,8 +14,14 @@ import java.util.Stack;
 public class MinMax {
     private NeuralNetwork nn;
     private static final int DEPTH = 5;
+    private static final double LEARNING_RATE = 0.1;
     public MinMax(){
         this.initNeuralNetwork();
+    }
+
+    public void train(){
+        Trainer trainer = new Trainer(this.nn, LEARNING_RATE);
+        trainer.train(10000);
     }
 
     private void initNeuralNetwork(){
@@ -68,7 +75,7 @@ public class MinMax {
         WeightNode tree = new WeightNode();
         this.buildTree(board, tree, DEPTH, botPlayerId);
 
-        tree.debugPrint();
+//        tree.debugPrint();
 
         System.out.println("Tree built in " + (System.currentTimeMillis() - start) + "ms");
         start = System.currentTimeMillis();
@@ -134,7 +141,6 @@ public class MinMax {
                     } else {
                         // if we win, we don't need to iter more in depth
                         child.setWin(true);
-                        System.out.println("Win at depth " + (DEPTH - depth) + " for " + currentPlayer + " with move " + m);
                     }
 
                     root.addNode(child);
