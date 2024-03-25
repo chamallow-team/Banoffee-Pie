@@ -63,38 +63,38 @@ fn generate_nn(trng: &mut ThreadRng) -> NeuralNetwork {
     let id_h2 = nn.add_neuron(Neuron::new(gen_rand(trng), false));
 
     nn.add_neuron_link(
-        id_input1,
+        id_output,
         NeuronLink::new(id_h1, gen_rand(trng))
     );
     nn.add_neuron_link(
-        id_input2,
-        NeuronLink::new(id_h1, gen_rand(trng))
-    );
-    nn.add_neuron_link(
-        id_input3,
-        NeuronLink::new(id_h1, gen_rand(trng))
-    );
-
-    nn.add_neuron_link(
-        id_input1,
-        NeuronLink::new(id_h2, gen_rand(trng))
-    );
-    nn.add_neuron_link(
-        id_input2,
-        NeuronLink::new(id_h2, gen_rand(trng))
-    );
-    nn.add_neuron_link(
-        id_input3,
+        id_output,
         NeuronLink::new(id_h2, gen_rand(trng))
     );
     
     nn.add_neuron_link(
         id_h1,
-        NeuronLink::new(id_output, gen_rand(trng))
+        NeuronLink::new(id_input1, gen_rand(trng))
+    );
+    nn.add_neuron_link(
+        id_h1,
+        NeuronLink::new(id_input2, gen_rand(trng))
+    );
+    nn.add_neuron_link(
+        id_h1,
+        NeuronLink::new(id_input3, gen_rand(trng))
+    );
+    
+    nn.add_neuron_link(
+        id_h2,
+        NeuronLink::new(id_input1, gen_rand(trng))
     );
     nn.add_neuron_link(
         id_h2,
-        NeuronLink::new(id_output, gen_rand(trng))
+        NeuronLink::new(id_input2, gen_rand(trng))
+    );
+    nn.add_neuron_link(
+        id_h2,
+        NeuronLink::new(id_input3, gen_rand(trng))
     );
     
     nn.set_output_id(id_output);
